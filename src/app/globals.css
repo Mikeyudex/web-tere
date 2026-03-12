@@ -1,26 +1,62 @@
 @import "tailwindcss";
+@import "./fonts/satoshi.css";
+@import "./fonts/chillax.css";
+@import "./fonts/gambetta.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0e0e0e;
+  --foreground: #dac5a7;
+  --gold: #dac5a7;
+  --gold-light: #dac5a7;
+  --gold-dark: #dac5a7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: 'Satoshi', var(--font-inter);
+  --font-serif: 'Chillax', var(--font-playfair);
+
+  --font-satoshi: 'Satoshi', sans-serif;
+  --font-chillax: 'Chillax', sans-serif;
+  --font-gambetta: 'Gambetta', serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-serif), "Times New Roman", Times, serif;
+  @apply antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sans), sans-serif;
+}
+
+h5,
+h6 {
+  font-family: var(--font-serif), serif;
+}
+
+@keyframes pageSlideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-slide-up {
+  animation: pageSlideUpFade 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

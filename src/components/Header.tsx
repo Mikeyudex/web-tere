@@ -1,0 +1,119 @@
+"use client";
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
+
+const NAV_LINKS = [
+  { label: 'SERVICES', href: '#services' },
+  { label: 'WORK', href: '#work' },
+  { label: 'ABOUT', href: '#about' },
+  { label: 'BLOG', href: '#blog' },
+];
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      setIsOpen(false);
+      setIsTransitioning(true);
+
+      setTimeout(() => {
+        const targetId = href.replace('#', '');
+        const element = document.getElementById(targetId);
+
+        if (element) {
+          window.scrollTo({
+            top: element.offsetTop - 80,
+            behavior: 'instant' // native css behavior was removed anyway
+          });
+
+          const main = document.getElementById('main-content');
+          if (main) {
+            main.classList.remove('animate-page-slide-up');
+            void main.offsetWidth; // trigger reflow
+            main.classList.add('animate-page-slide-up');
+          }
+        }
+
+        setIsTransitioning(false);
+      }, 200); // Wait for fade to black
+    }
+  };
+
+  return (
+    <>
+      {/* Overlay Transition */}
+      <div
+        className={`fixed inset-0 z-[100] bg-[#0e0e0e] transition-opacity duration-500 pointer-events-none ${isTransitioning ? 'opacity-100' : 'opacity-0'}`}
+      />
+
+      <header className="fixed top-8 w-full z-50 flex justify-center">
+        <div className="bg-[#0e0e0e]/80 backdrop-blur-md border border-[#333333] px-8 py-4 flex items-center justify-between min-w-[300px] md:min-w-[600px]">
+          {/* Logo */}
+          <Link href="/" className="font-sans font-light text-2xl tracking-wider text-[#dac5a7] mr-12" onClick={(e) => handleNavClick(e, '#home')}>
+            Tere Yudex<span className="text-[#dac5a7]">.</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8 text-[#dac5a7]">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="group relative cursor-pointer text-[13px] uppercase tracking-[0.15em] transition-colors hover:text-[#dac5a7] font-sans"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#dac5a7] transition-all duration-300 ease-out group-hover:w-full"></span>
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, '#contact')}
+              className="ml-8 px-6 py-2 bg-[#dac5a7] hover:bg-[#e8d5b7] text-black transition-colors cursor-pointer text-[13px] uppercase tracking-[0.15em] font-medium font-sans"
+            >
+              LET'S TALK
+            </a>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-[#dac5a7] hover:text-[#dac5a7]"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation Menu */}
+        {isOpen && (
+          <div className="md:hidden bg-background border-b border-white/5 absolute top-full left-0 w-full mt-2 rounded">
+            <div className="px-4 py-6 bg-[#0e0e0e] border border-[#333333] space-y-4 flex flex-col items-center">
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="block cursor-pointer font-sans text-sm uppercase tracking-widest text-[#dac5a7] hover:text-[#dac5a7] py-2"
+                  onClick={(e) => handleNavClick(e, link.href)}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a
+                href="#contact"
+                className="block mt-4 cursor-pointer px-8 py-3 bg-[#dac5a7] text-black text-sm uppercase tracking-widest rounded-sm font-sans"
+                onClick={(e) => handleNavClick(e, '#contact')}
+              >
+                LET'S TALK
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+    </>
+  );
+}

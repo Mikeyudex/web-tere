@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'SERVICES', href: '#services' },
-  { label: 'WORK', href: '#work' },
-  { label: 'ABOUT', href: '#about' },
-  { label: 'BLOG', href: '#blog' },
+  { label: 'Servicios', href: '#services' },
+  { label: 'Trabajos', href: '#work' },
+  { label: 'Acerca de mí', href: '#about' },
+  { label: 'Blog', href: '#blog' },
 ];
 
 export default function Header() {
@@ -76,7 +76,7 @@ export default function Header() {
               onClick={(e) => handleNavClick(e, '#contact')}
               className="ml-8 px-6 py-2 bg-[#dac5a7] hover:bg-[#e8d5b7] text-black transition-colors cursor-pointer text-[13px] uppercase tracking-[0.15em] font-medium font-sans"
             >
-              LET'S TALK
+              Hablemos!
             </a>
           </nav>
 

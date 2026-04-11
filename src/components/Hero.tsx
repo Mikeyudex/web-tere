@@ -17,12 +17,13 @@ export default function Hero() {
             </div>
 
             <p className="font-satoshi text-5xl md:text-7xl lg:text-8xl font-light tracking-tight mb-4 animate-fade-in-up">
-                Diseñadora
+                Capturo momentos
             </p>
-            <p className="text-[#dac5a7] font-gambetta italic font-light text-5xl md:text-7xl lg:text-8xl">& Comunicadora</p>
+            <p className="text-[#dac5a7] font-gambetta italic font-light text-5xl md:text-7xl lg:text-8xl mt-2">Diseño historias</p>
 
             <p className="max-w-xl mx-auto text-[#dac5a7] text-sm md:text-base tracking-wide leading-relaxed mb-10 font-chillax lg:text-xl font-light">
-                Premium web design, development, and SEO services to help your business stand out.
+                Fotografía, diseño de marca y piezas visuales creadas con una mirada
+                minimalista, auténtica y llena de intención.
             </p>
 
             <div className="flex items-center gap-6 mb-20 animate-fade-in">

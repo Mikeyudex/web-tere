@@ -1,6 +1,6 @@
 "use client";
 
-import { MonitorSmartphone, Code, Search } from 'lucide-react';
+import { MonitorSmartphone, Code, Camera, BookImage, ImagesIcon, Box } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const STEPS = [
@@ -24,10 +24,28 @@ const SERVICES = [
     icon: <Code size={32} className="text-[#dac5a7]" />
   },
   {
-    title: 'Impulsando tu tráfico orgánico',
-    subtitle: 'OPTIMIZACIÓN SEO',
-    desc: 'Estrategias de SEO integrales para apalancar tu posicionamiento en buscadores. Implementamos SEO técnico, on-page y off-page para impulsar un flujo de tráfico orgánico y constante.',
-    icon: <Search size={32} className="text-[#dac5a7]" />
+    title: 'Capturando momentos especiales',
+    subtitle: 'FOTOGRAFÍA',
+    desc: 'Sesiones fotográficas pensadas para capturar tu esencia o la de tu proyecto. Desde retratos hasta fotografías creativas que cuentan una historia.',
+    icon: <Camera size={32} className="text-[#dac5a7]" />
+  },
+  {
+    title: 'Cuadros fotográficos',
+    subtitle: 'RETRATOS',
+    desc: 'Fotografías seleccionadas y enmarcadas que transforman espacios. Cada pieza busca transmitir una atmósfera, una emoción o un momento detenido en el tiempo',
+    icon: <BookImage size={32} className="text-[#dac5a7]" />
+  },
+  {
+    title: 'Diseño de marca',
+    subtitle: 'BRANDING',
+    desc: 'Diseño de identidad visual para emprendedores y proyectos. Logos, branding y sistemas visuales minimalistas que comunican con claridad, personalidad y fuerza.',
+    icon: <ImagesIcon size={32} className="text-[#dac5a7]" />
+  },
+  {
+    title: 'Cajas sorpresa personalizadas',
+    subtitle: 'CAJAS SORPRESA',
+    desc: 'Cajas sorpresa personalizadas para todo tipo de ocasiones. Diseños únicos y creativos que se adaptan a tus necesidades.',
+    icon: <Box size={32} className="text-[#dac5a7]" />
   },
 ];
 
@@ -117,37 +135,22 @@ export default function Services() {
           {SERVICES.map((service, idx) => (
             <motion.div
               key={idx}
-              className="mb-12 border border-white/5 bg-[#0e0e0e] rounded-sm overflow-hidden group"
+              className="mb-12 border border-white/5 bg-[#1c1a18] rounded-sm overflow-hidden group"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 2.2, delay: 0.15, ease: "easeOut" }}
             >
               <div className="p-8 md:p-12 lg:p-16">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-[#dac5a7] mb-6 font-satoshi">{service.subtitle}</p>
+                <p className="text-[0.6rem] uppercase tracking-[0.2em] text-[#b5a38b] mb-2 font-satoshi">{service.subtitle}</p>
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
                   <div className="md:w-1/2">
                     <h3 className="font-satoshi text-3xl md:text-4xl lg:text-5xl text-[#dac5a7] font-light !leading-tight group-hover:text-[#dac5a7] transition-colors mb-6">{service.title}</h3>
-                    <p className="text-[#dac5a7] text-sm leading-relaxed mb-8 max-w-md font-chillax" style={{ fontWeight: '400' }}>{service.desc}</p>
-
-                    <div className="flex flex-col gap-4 font-chillax text-[2rem]" style={{ fontWeight: '400' }}>
-                      <div className="flex items-center gap-4 text-sm text-[#dac5a7]">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gold"></div>
-                        Sistema de Diseño Personalizado
-                      </div>
-                      <div className="flex items-center gap-4 text-sm text-[#dac5a7]">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gold"></div>
-                        Diseños Responsivos
-                      </div>
-                      <div className="flex items-center gap-4 text-sm text-[#dac5a7]">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gold"></div>
-                        Elementos Interactivos
-                      </div>
-                    </div>
+                    <p className="text-[#b5a38b] text-lg leading-relaxed mb-8 max-w-md font-chillax" style={{ fontWeight: '400' }}>{service.desc}</p>
                   </div>
 
                   <div className="md:w-[40%] bg-[#0e0e0e] border border-white/10 rounded-sm aspect-video flex items-center justify-center p-8 relative overflow-hidden">
-                    <div className="z-10 bg-[#0e0e0e]/50 p-6 backdrop-blur-md rounded-full border border-white/10 group-hover:border-gold/50 transition-colors">
+                    <div className="z-10 bg-[#0e0e0e]/50 p-6 backdrop-blur-md rounded-full border border-white/10 group-hover:border-gold/50 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-125 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(218,197,167,0.4)]">
                       {service.icon}
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-tr from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>

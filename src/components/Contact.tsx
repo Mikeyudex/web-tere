@@ -20,15 +20,19 @@ export default function Contact() {
         <section className="py-32 border-t border-white/5 bg-[#0e0e0e]" id="contact">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16 animate-fade-in-up">
-                    <p className="text-sm uppercase tracking-widest text-[#dac5a7] mb-4">¿PROYECTO EN MENTE?</p>
-                    <h2 className=" text-6xl md:text-8xl font-medium mb-8 text-[#dac5a7] tracking-wide">
-                        Hablemos  <br />
-                        <span className="text-[#dac5a7] italic font-light">Creemos algo único</span>
+                    <p className="text-sm uppercase text-[#dac5a7] mb-4 font-satoshi font-light" style={{ letterSpacing: '1.5px' }}>¿PROYECTO EN MENTE?</p>
+                    <h2 className="font-satoshi text-6xl md:text-8xl lg:text-11xl font-light text-[#dac5a7]">
+                        Hagamos que
                     </h2>
-                    <p className="text-[#dac5a7] text-sm max-w-xl mx-auto mb-10 leading-relaxed text-center w-full block">
-                        Si tienes una idea, una historia o un proyecto en mente, me encantaría ayudarte a
-                        darle forma visual.
-                    </p>
+
+                    <h2 className="text-[#dac5a7] italic font-light font-gambetta text-6xl md:text-8xl lg:text-10xl">suceda</h2>
+
+                    <div className='max-w-md mx-auto mt-6'>
+                        <p className="font-chillax text-[#a3947d] text-lg max-w-xl mx-auto mb-10 leading-relaxed text-center w-full block">
+                            Si tienes una idea, una historia, me encantaría ayudarte a darle forma visual.
+                        </p>
+                    </div>
+
                 </div>
 
                 <div className="max-w-2xl mx-auto bg-[#0e0e0e] border border-white/10 rounded-sm p-8 md:p-12">
@@ -41,32 +45,32 @@ export default function Contact() {
                     ) : (
                         <form onSubmit={handleSubmit} className="space-y-6 flex flex-col">
                             <div className="flex flex-col gap-2">
-                                <label htmlFor="name" className="text-[10px] md:text-xs uppercase tracking-widest text-[#dac5a7]">Nombre</label>
+                                <label htmlFor="name" className="font-satoshi text-[10px] md:text-xs uppercase tracking-widest text-[#dac5a7]">Nombre</label>
                                 <input
                                     type="text"
                                     id="name"
                                     required
-                                    className="bg-[#0e0e0e] border border-white/10 text-[#dac5a7] rounded-sm px-4 py-4 md:py-3 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors text-sm"
+                                    className="font-chillax bg-[#0e0e0e] border border-white/10 text-[#dac5a7] rounded-sm px-4 py-4 md:py-3 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors text-sm placeholder:font-chillax"
                                     placeholder="Tu nombre"
                                 />
                             </div>
                             <div className="flex flex-col gap-2">
-                                <label htmlFor="email" className="text-[10px] md:text-xs uppercase tracking-widest text-[#dac5a7]">Correo</label>
+                                <label htmlFor="email" className="font-satoshi text-[10px] md:text-xs uppercase tracking-widest text-[#dac5a7]">Correo</label>
                                 <input
                                     type="email"
                                     id="email"
                                     required
-                                    className="bg-[#0e0e0e] border border-white/10 text-[#dac5a7] rounded-sm px-4 py-4 md:py-3 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors text-sm"
+                                    className="font-chillax bg-[#0e0e0e] border border-white/10 text-[#dac5a7] rounded-sm px-4 py-4 md:py-3 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors text-sm placeholder:font-chillax"
                                     placeholder="alguien@ideas.com"
                                 />
                             </div>
                             <div className="flex flex-col gap-2">
-                                <label htmlFor="message" className="text-[10px] md:text-xs uppercase tracking-widest text-[#dac5a7]">Mensaje</label>
+                                <label htmlFor="message" className="font-satoshi text-[10px] md:text-xs uppercase tracking-widest text-[#dac5a7]">Mensaje</label>
                                 <textarea
                                     id="message"
                                     required
                                     rows={4}
-                                    className="bg-[#0e0e0e] border border-white/10 text-[#dac5a7] rounded-sm px-4 py-4 md:py-3 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors resize-none text-sm"
+                                    className="font-chillax bg-[#0e0e0e] border border-white/10 text-[#dac5a7] rounded-sm px-4 py-4 md:py-3 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors resize-none text-sm placeholder:font-chillax"
                                     placeholder="Cuéntame sobre tu proyecto..."
                                 />
                             </div>

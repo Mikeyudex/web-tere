@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
  variable: "--font-inter",
@@ -20,18 +21,20 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
- children,
+  children,
 }: Readonly<{
- children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} antialiased bg-[#0e0e0e] text-[#dac5a7] min-h-screen flex flex-col`}>
-        <Header />
-        <main id="main-content" className="flex-grow pt-20">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScroll>
+          <Header />
+          <main id="main-content" className="flex-grow pt-20">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

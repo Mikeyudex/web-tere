@@ -3,25 +3,36 @@ import { Instagram, Twitter, Dribbble } from 'lucide-react';
 
 export default function Hero() {
     return (
-        <section className="relative pt-32 pb-20 flex justify-center items-center flex-col text-center px-4" id="home">
-            {/* Profile Image Area */}
-            <div className="relative mb-8 group">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gold/30 gold-glow relative z-10 mx-auto bg-[#0e0e0e]">
-                    {/* Using a placeholder for now, ideally the user provides the image later */}
-                    <div className="w-full h-full bg-[#0e0e0e] flex items-center justify-center">
-                        <span className="text-[#dac5a7] text-xs text-center px-2">Arik Photo</span>
-                    </div>
+        <section className="relative min-h-[90vh] flex justify-center items-center flex-col text-center px-4 overflow-hidden" id="home">
+            {/* Background Camera Integration with "Velo" (Veil) Effect */}
+            <div className="absolute inset-0 -z-10 pointer-events-none">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full lg:w-[110%] h-full opacity-40">
+                    <img 
+                        src="/images/camara.jpg" 
+                        alt="Background Camera" 
+                        className="w-full h-full object-cover"
+                        style={{
+                            maskImage: 'radial-gradient(circle at 50% 45%, black 5%, transparent 65%)',
+                            WebkitMaskImage: 'radial-gradient(circle at 50% 45%, black 5%, transparent 65%)'
+                        }}
+                    />
                 </div>
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-gold/20 blur-3xl rounded-full translate-y-4 -z-10 group-hover:bg-gold/30 transition-all duration-700"></div>
+                
+                {/* The "Velo" - Expanded glow surrounding the camera area */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] aspect-square bg-[#dac5a7]/5 blur-[160px] rounded-full opacity-60"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] aspect-square bg-[#dac5a7]/10 blur-[100px] rounded-full opacity-40"></div>
+                
+                {/* Global blend gradients to ensure edges are invisible */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0e0e0e] via-transparent to-[#0e0e0e]"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0e0e0e] via-transparent to-[#0e0e0e]"></div>
             </div>
 
-            <p className="font-satoshi text-5xl md:text-7xl lg:text-8xl font-light tracking-tight mb-4 animate-fade-in-up">
+            <p className="font-satoshi text-5xl md:text-7xl lg:text-9xl font-light tracking-tight mb-4 animate-fade-in-up relative z-10">
                 Capturo momentos
             </p>
-            <p className="text-[#dac5a7] font-gambetta italic font-light text-5xl md:text-7xl lg:text-8xl mt-2">Diseño historias</p>
+            <p className="text-[#dac5a7] font-gambetta italic font-light text-5xl md:text-7xl lg:text-9xl mt-2 animate-fade-in-up relative z-10">Diseño historias</p>
 
-            <p className="max-w-xl mx-auto text-[#dac5a7] text-sm md:text-base tracking-wide leading-relaxed mb-10 font-chillax lg:text-xl font-light">
+            <p className="max-w-xl mx-auto text-[#dac5a7]/90 text-sm md:text-base tracking-wide leading-relaxed mb-10 font-chillax lg:text-xl font-light mt-12 animate-fade-in relative z-10">
                 Fotografía, diseño de marca y piezas visuales creadas con una mirada
                 minimalista, auténtica y llena de intención.
             </p>

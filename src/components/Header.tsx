@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
@@ -90,29 +91,43 @@ export default function Header() {
         </div>
 
         {/* Mobile Navigation Menu */}
-        {isOpen && (
-          <div className="md:hidden bg-background border-b border-white/5 absolute top-full left-0 w-full mt-2 rounded">
-            <div className="px-4 py-6 bg-[#0e0e0e] border border-[#333333] space-y-4 flex flex-col items-center">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="block cursor-pointer font-sans text-sm uppercase tracking-widest text-[#dac5a7] hover:text-[#dac5a7] py-2"
-                  onClick={(e) => handleNavClick(e, link.href)}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div 
+              initial={{ opacity: 0, y: -10, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="md:hidden absolute top-full left-1/2 -translate-x-1/2 w-[90%] mt-4"
+            >
+              <div className="px-4 py-8 bg-[#0e0e0e]/95 backdrop-blur-xl border border-[#333333] space-y-6 flex flex-col items-center shadow-2xl rounded-lg">
+                {NAV_LINKS.map((link, i) => (
+                  <motion.a
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.05 + 0.1 }}
+                    key={link.label}
+                    href={link.href}
+                    className="block cursor-pointer font-sans text-[13px] uppercase tracking-[0.2em] text-[#dac5a7] hover:text-[#dac5a7] py-1"
+                    onClick={(e) => handleNavClick(e, link.href)}
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+                <motion.a
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: NAV_LINKS.length * 0.05 + 0.1 }}
+                  href="#contact"
+                  className="block mt-4 cursor-pointer px-10 py-3 bg-[#dac5a7] text-black text-[13px] uppercase tracking-[0.2em] font-medium font-sans"
+                  onClick={(e) => handleNavClick(e, '#contact')}
                 >
-                  {link.label}
-                </a>
-              ))}
-              <a
-                href="#contact"
-                className="block mt-4 cursor-pointer px-8 py-3 bg-[#dac5a7] text-black text-sm uppercase tracking-widest rounded-sm font-sans"
-                onClick={(e) => handleNavClick(e, '#contact')}
-              >
-                LET'S TALK
-              </a>
-            </div>
-          </div>
-        )}
+                  Hablemos!
+                </motion.a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
     </>
   );

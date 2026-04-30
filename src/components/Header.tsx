@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: 'Servicios', href: '#services' },
   { label: 'Trabajos', href: '#work' },
   { label: 'Acerca de mí', href: '#about' },
-  { label: 'Blog', href: '#blog' },
+  /* { label: 'Blog', href: '#blog' }, */
 ];
 
 export default function Header() {
@@ -51,7 +51,7 @@ export default function Header() {
         className={`fixed inset-0 z-[100] bg-[#0e0e0e] transition-opacity duration-500 pointer-events-none ${isTransitioning ? 'opacity-100' : 'opacity-0'}`}
       />
 
-      <header className="fixed top-8 w-full z-50 flex justify-center">
+      <header className="fixed top-4 w-full z-50 flex justify-center">
         <div className="bg-[#0e0e0e]/80 backdrop-blur-md border border-[#333333] px-8 py-4 flex items-center justify-between min-w-[300px] md:min-w-[600px]">
           {/* Logo */}
           <Link href="/" className="font-sans font-light text-2xl tracking-wider text-[#dac5a7] mr-12" onClick={(e) => handleNavClick(e, '#home')}>
